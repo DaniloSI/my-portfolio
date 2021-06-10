@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 
-import './index.scss';
+import './index.css';
 import Portfolio from './Portfolio';
 import './i18n';
 
