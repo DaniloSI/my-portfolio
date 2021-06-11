@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
+import DarkModeToggle from "react-dark-mode-toggle";
 import { useTranslation } from 'react-i18next';
 
-import { IconButton, SvgIcon, Tooltip } from '@material-ui/core';
+import { IconButton, Tooltip } from '@material-ui/core';
 import { ThemeProvider } from 'styled-components';
 
 import MenuLanguage from './components/MenuLanguage';
 import { ReactComponent as githubIcon } from './images/github.svg';
 import { ReactComponent as linkedinIcon } from './images/linkedin.svg';
 import { ReactComponent as mailIcon } from './images/mail.svg';
-import { ReactComponent as moonIcon } from './images/moon.svg';
 import photo from './images/Photo.png';
-import { ReactComponent as sunIcon } from './images/sun.svg';
 import {
   Body,
   Content,
@@ -68,9 +67,11 @@ const Portfolio: React.FC = () => {
       <PortifolioPage>
         <TopButtons>
           <MenuLanguage />
-          <IconButton className="theme-button" onClick={() => setDarkEnabled(old => !old)} size="small">
-            <SvgIcon component={darkEnabled ? sunIcon : moonIcon} fontSize="large" viewBox="0 0 32 32" />
-          </IconButton>
+          <DarkModeToggle
+            checked={darkEnabled}
+            onChange={setDarkEnabled}
+            size={70}
+          />
         </TopButtons>
         <Photo>
           <img alt="danilo" src={photo} />
@@ -112,7 +113,7 @@ const Portfolio: React.FC = () => {
           <Square>
             <Title>{t('Skills')}</Title>
             <ContentSkills>
-              {skills.map(s => <Skill label={s} variant="outlined" />)}
+              {skills.map(s => <Skill key={s} label={s} variant="outlined" />)}
             </ContentSkills>
           </Square>
         </Content>

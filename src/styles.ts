@@ -2,10 +2,6 @@ import Chip, { ChipProps } from '@material-ui/core/Chip';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 import styled from 'styled-components';
 
-//  ? '#171717' : '#F4F4F4'
-//  ? '#1BB55C' : '#2667ff'
-// .dark ? '#FFF' : '#000'
-
 export const PortifolioPage = styled.div`
   background-color: ${props => props.theme.background};
   min-height: 100vh;
