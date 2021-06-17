@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import DarkModeToggle from "react-dark-mode-toggle";
 import { useTranslation } from 'react-i18next';
+import Toggle from 'react-toggle';
+import "react-toggle/style.css";
 
 import { IconButton, Tooltip } from '@material-ui/core';
 import { ThemeProvider } from 'styled-components';
@@ -67,10 +68,14 @@ const Portfolio: React.FC = () => {
       <PortifolioPage>
         <TopButtons>
           <MenuLanguage />
-          <DarkModeToggle
-            checked={darkEnabled}
-            onChange={setDarkEnabled}
-            size={70}
+          <Toggle
+            className="toggle-dark"
+            defaultChecked={darkEnabled}
+            icons={{
+              checked: <span className="toggle_icon">🌜</span>,
+              unchecked: <span className="toggle_icon">🌞</span>,
+            }}
+            onChange={(e) => setDarkEnabled(e.target.checked)}
           />
         </TopButtons>
         <Photo>
