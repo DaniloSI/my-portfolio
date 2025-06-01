@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
-  SheetClose, // Import SheetClose
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -25,7 +25,7 @@ import {
 const navItems = [
   { href: "/", label: "Início", icon: Home },
   { href: "/about-me", label: "Sobre mim", icon: User },
-  { href: "/projects", label: "Projetos", icon: Folder },
+  { href: "#", label: "Projetos", icon: Folder },
   { href: "/contact", label: "Contato", icon: Mail },
 ];
 
@@ -45,11 +45,7 @@ export function SiteNavigationMenu() {
       <div className="md:hidden">
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={openMobileMenu} // Use named function
-            >
+            <Button variant="outline" size="icon" onClick={openMobileMenu}>
               <Menu className="h-6 w-6" />
               <span className="sr-only">Open menu</span>
             </Button>
@@ -70,7 +66,7 @@ export function SiteNavigationMenu() {
                   <Link
                     href={item.href}
                     className="flex items-center gap-3 pl-5 pr-3 py-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                    onClick={closeMobileMenu} // Use named function
+                    onClick={closeMobileMenu}
                   >
                     <item.icon className="w-5 h-5" />
                     <span>{item.label}</span>

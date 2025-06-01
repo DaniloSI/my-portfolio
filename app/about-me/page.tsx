@@ -7,13 +7,14 @@ export default function AboutMePage() {
           Sobre mim
         </h1>
         <p className="text-gray-700 text-center md:text-left">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Desenvolvedor frontend com mais de 7 anos de experiência, com atuação
+          em projetos web de alta escala e foco na criação de soluções
+          escaláveis, acessíveis e usáveis. Minha formação em sistemas de
+          informação embasa meu foco em apps rápidos, seguros e de fácil uso.
+          Especialista em React.js e Next.js, tenho experiência com testes
+          automatizados, feature flags e observabilidade. Valorizo cultura de
+          equipe, aprendizado contínuo e busco aprofundar em segurança,
+          otimização e acessibilidade.
         </p>
       </div>
 
