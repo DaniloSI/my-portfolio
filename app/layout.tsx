@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col h-screen">
         <header className="fixed top-0 left-0 right-0 bg-white z-10 shadow-md">
-          <div className="max-w-screen-xl mx-auto flex justify-end items-center p-4">
+          <div className="max-w-screen-xl mx-auto flex justify-end items-center px-4">
             <SiteNavigationMenu />
           </div>
         </header>

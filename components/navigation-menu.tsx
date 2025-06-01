@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
+  SheetClose, // Import SheetClose
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -22,20 +23,33 @@ import {
 } from "@/components/ui/sheet";
 
 const navItems = [
-  { href: "#", label: "Início", icon: Home },
-  { href: "#", label: "Sobre mim", icon: User },
-  { href: "#", label: "Projetos", icon: Folder },
-  { href: "#", label: "Contato", icon: Mail },
+  { href: "/", label: "Início", icon: Home },
+  { href: "/about-me", label: "Sobre mim", icon: User },
+  { href: "/projects", label: "Projetos", icon: Folder },
+  { href: "/contact", label: "Contato", icon: Mail },
 ];
 
 export function SiteNavigationMenu() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  const openMobileMenu = () => setIsMobileMenuOpen(true);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   return (
-    <>
+    <div className="flex items-center justify-between w-full h-16 px-1 md:px-3">
+      <Link href="/" className="text-lg font-semibold text-foreground">
+        Danilo de Oliveira
+      </Link>
+
       {/* Mobile Menu */}
       <div className="md:hidden">
-        <Sheet>
+        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={openMobileMenu} // Use named function
+            >
               <Menu className="h-6 w-6" />
               <span className="sr-only">Open menu</span>
             </Button>
@@ -52,14 +66,16 @@ export function SiteNavigationMenu() {
             <hr className="border-border mx-4" />
             <nav className="grid gap-4 text-lg font-medium p-4 pt-2">
               {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center gap-3 pl-5 pr-3 py-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                >
-                  <item.icon className="w-5 h-5" />
-                  <span>{item.label}</span>
-                </Link>
+                <SheetClose asChild key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-3 pl-5 pr-3 py-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                    onClick={closeMobileMenu} // Use named function
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </Link>
+                </SheetClose>
               ))}
             </nav>
           </SheetContent>
@@ -81,6 +97,6 @@ export function SiteNavigationMenu() {
           ))}
         </NavigationMenuList>
       </NavigationMenu>
-    </>
+    </div>
   );
 }
